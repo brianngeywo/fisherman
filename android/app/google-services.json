@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659367566302",
+    "project_id": "goldkash254",
+    "storage_bucket": "goldkash254.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659367566302:android:396da892ddba2e71139b4f",
+        "android_client_info": {
+          "package_name": "com.goldkash.qashpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659367566302-3vtgqib9e37d6o322ku0tcgotllla73h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaf43N7VNiiZQu0tKfw2cIMIqxoA5iLo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659367566302-3vtgqib9e37d6o322ku0tcgotllla73h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
