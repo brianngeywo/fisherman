@@ -56,7 +56,7 @@ class MyHomePage extends StatelessWidget {
       ),
       topAppBarDropDownListTextButton(
         context,
-        FontAwesomeIcons.handHoldingDollar,
+        FontAwesomeIcons.bank,
         2,
         "Request withdrawal",
       ),
@@ -66,12 +66,12 @@ class MyHomePage extends StatelessWidget {
         3,
         "Activations",
       ),
-      topAppBarDropDownListTextButton(
-        context,
-        FontAwesomeIcons.link,
-        4,
-        "Referral link",
-      ),
+      // topAppBarDropDownListTextButton(
+      //   context,
+      //   FontAwesomeIcons.link,
+      //   4,
+      //   "Referral link",
+      // ),
       topAppBarDropDownListTileButtonWidget(
         FontAwesomeIcons.arrowRightArrowLeft,
         "Transactions Summary",
@@ -114,17 +114,17 @@ class MyHomePage extends StatelessWidget {
           builder: (context, state) {
             switch (state.runtimeType) {
               case OnHomepageState:
-                return homeScreen();
+                return homeScreen(context);
               case OnWithdrawalsListPageState:
                 return withdrawalsScreen();
               case OnDepositPageState:
                 return depositScreen();
               case OnDownLinesListPageState:
                 return listOfDownLinesScreen(context);
-              case OnShareAndInvitesPageState:
-                return shareLinkToProfileScreen(context);
+              // case OnShareAndInvitesPageState:
+              //   return shareLinkToProfileScreen(context);
               default:
-                return homeScreen();
+                return homeScreen(context);
             }
           },
         ),

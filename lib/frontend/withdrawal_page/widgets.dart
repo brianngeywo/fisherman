@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/frontend/constants.dart';
 
 import '../../backend/models/account_transactions.dart';
@@ -53,10 +54,11 @@ Widget myEarningsWidgetCard() {
     ),
     child: Container(
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
         gradient: RadialGradient(
-          colors: [
-            const Color.fromRGBO(107, 145, 251, 1),
-            const Color.fromRGBO(10, 67, 128, 1),
+          colors: const [
+            Color.fromRGBO(107, 145, 251, 1),
+            Color.fromRGBO(10, 67, 128, 1),
           ],
           center: Alignment.bottomRight,
           radius: 1.618,
@@ -68,42 +70,69 @@ Widget myEarningsWidgetCard() {
         children: [
           Text(
             "My earnings".toUpperCase(),
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 3),
-          Text(
-            "total ksh 4500".toUpperCase(),
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 3),
-          Text(
-            "KSHS 5.00".toUpperCase(),
             style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
             ),
           ),
-          SizedBox(height: 3),
-          LinearProgressIndicator(
-            backgroundColor: mainPageBackgroundColor,
-            value: 0.2,
+          SizedBox(height: 7),
+          Text(
+            "total KES ${userProvider.user!.totalWithdrawals.toStringAsFixed(0)}"
+                .toUpperCase(),
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
           ),
-          SizedBox(height: 5),
-          Text("Earn KSHS 345.00 more to cash out"),
+          SizedBox(height: 7),
+          Text(
+            "KES ${userProvider.user!.accountBalance.toStringAsFixed(0)}"
+                .toUpperCase(),
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: userProvider.user!.accountBalance >=
+                      minimumAmountToWithdraw / 3.619
+                  ? Colors.white
+                  : Colors.amber,
+            ),
+          ),
+          SizedBox(height: 7),
+          LinearProgressIndicator(
+            backgroundColor:
+                userProvider.user!.accountBalance >= minimumAmountToWithdraw
+                    ? Colors.green
+                    : mainPageBackgroundColor,
+            value: userProvider.user!.accountBalance / minimumAmountToWithdraw,
+          ),
+          SizedBox(height: 15),
+          Text(
+            userProvider.user!.accountBalance <= minimumAmountToWithdraw
+                ? "Earn KES ${(minimumAmountToWithdraw - userProvider.user!.accountBalance).toStringAsFixed(0)} more to cash out"
+                : "",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ],
       ),
     ),
   );
 }
 
-Widget cashoutMethodWidgetCard(IconData ic, String text1) {
+Widget cashoutMethodWidgetCard(Color? color,
+    {required IconData ic, required String text1}) {
   return Card(
+    color: color,
     elevation: 5,
     margin: EdgeInsets.all(10),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
-    child: Padding(
+    child: Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,26 +145,31 @@ Widget cashoutMethodWidgetCard(IconData ic, String text1) {
           ),
           SizedBox(height: 5),
           Text(
-            "Min. cashout - KSHS 450.00",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            "Min. cashout - KSHS $minimumAmountToWithdraw",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: mainButtonsColor,
+            ),
           ),
           SizedBox(height: 5),
-          Row(
-            children: [
-              Icon(
-                Icons.warning_amber,
-                color: Colors.amber,
-                size: 14,
-              ),
-              SizedBox(width: 5),
-              Text(
-                "Balance too low",
-                style: TextStyle(
-                  color: Colors.amber,
-                ),
-              ),
-            ],
-          ),
+          userProvider.user!.accountBalance < minimumAmountToWithdraw
+              ? Row(
+                  children: const [
+                    Icon(
+                      Icons.warning_amber,
+                      color: Colors.amber,
+                      size: 14,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      "Balance too low",
+                      style: TextStyle(
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ],
+                )
+              : SizedBox(),
         ],
       ),
     ),
@@ -143,7 +177,11 @@ Widget cashoutMethodWidgetCard(IconData ic, String text1) {
 }
 
 String? paymentMethod = "mpesa";
-Widget selectPaymentOtionRadioListTile(String title, String number) {
+Widget selectPaymentOtionRadioListTile({
+  required String title,
+  required String number,
+  required Color subTitleColor,
+}) {
   return StatefulBuilder(
     builder: (BuildContext context, StateSetter setState) {
       return Card(
@@ -155,26 +193,41 @@ Widget selectPaymentOtionRadioListTile(String title, String number) {
         ),
         margin: EdgeInsets.all(10),
         child: SizedBox(
-          height: 90,
+          height: 110,
           child: Center(
             child: RadioListTile(
               activeColor: Color.fromARGB(206, 51, 94, 178),
-              title: Text(title),
-              subtitle: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.call,
-                    size: 16,
+              title: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
                   ),
-                  SizedBox(width: 10),
-                  Text(
-                    number,
-                    style: TextStyle(
-                      fontSize: 15,
+                ),
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.call,
+                      size: 18,
+                      color: subTitleColor,
                     ),
-                  ),
-                ],
+                    SizedBox(width: 10),
+                    Text(
+                      number,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: subTitleColor,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               value: "mpesa $number",
               groupValue: paymentMethod,

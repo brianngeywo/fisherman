@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:qashpal/backend/constants/constants.dart';
+import 'package:qashpal/backend/models/mobile_network_model.dart';
+import 'package:qashpal/backend/models/payment_provider.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/add_mobile_network_account.dart';
+import 'package:qashpal/frontend/withdrawal_page/edit_mobile_network_account.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
 class AddPaymentOptionPage extends StatefulWidget {
-  final String networkName;
-  const AddPaymentOptionPage({Key? key, required this.networkName})
+  final PaymentProvider provider;
+  const AddPaymentOptionPage({Key? key, required this.provider})
       : super(key: key);
 
   @override
@@ -15,12 +19,16 @@ class AddPaymentOptionPage extends StatefulWidget {
 }
 
 class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
+  MobileNetwork net =
+      MobileNetwork(nickName: "", phoneNumber: "", firstName: "", lastName: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: mainPageBackgroundColor,
       appBar: topAppBar(context,
           automaticallyImplyLeading: true, showUserIconDropdown: false),
       bottomSheet: Container(
+        color: mainPageBackgroundColor,
         padding: const EdgeInsets.all(8.0),
         child: mainSubmitButton(
           text: "Next",
@@ -41,22 +49,22 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  widget.networkName,
+                  widget.provider.name,
                   style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                    color: widget.provider.color,
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Balance KSH 5.00",
+                  "Balance KSH ${userProvider.user!.accountBalance.toStringAsFixed(0)}",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.amber,
+                    color: mainButtonsColor,
                   ),
                 ),
               ),
@@ -80,11 +88,19 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Edit",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: logoColor,
+                    TextButton(
+                      onPressed: () {
+                        navigatorKey.currentState!.push(MaterialPageRoute(
+                            builder: (context) => EditNetworkAccountPage(
+                                provider: widget.provider,
+                                mobileNetwork: net)));
+                      },
+                      child: Text(
+                        "Edit Selected Account",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: logoColor,
+                        ),
                       ),
                     ),
                   ],
@@ -93,13 +109,22 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  children: [
-                    selectPaymentOtionRadioListTile(
-                        "Mpesa account 1", "0798767470"),
-                    selectPaymentOtionRadioListTile(
-                        "Mpesa account 2", "0714721937"),
-                  ],
-                ),
+                    children: List.generate(nets.length, (index) {
+                  setState(() {
+                    net = nets[index];
+                  });
+                  return selectPaymentOtionRadioListTile(
+                    title: "${widget.provider.name} ${nets[index].nickName}",
+                    number: nets[index].phoneNumber,
+                    subTitleColor: widget.provider.color,
+                  );
+                })
+                    // selectPaymentOtionRadioListTile(
+                    //       title: "${widget.provider.name} account 1",
+                    //       number: "0798767470",
+                    //       subTitleColor: widget.provider.color),
+
+                    ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -121,8 +146,7 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
                     onPressed: () {
                       navigatorKey.currentState!.push(MaterialPageRoute(
                           builder: (cotext) => AddNewNetworkAccountPage(
-                                networkName: 'Safaricom',
-                                mobileMoneyAgent: 'Mpesa',
+                                provider: widget.provider,
                               )));
                       print("object");
                     },

@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/methods/user_functions.dart';
+import 'package:qashpal/backend/models/account_transactions.dart';
 import 'package:qashpal/bloc/account_transactions_tabs_bloc/account_transactions_tabs_bloc.dart';
 import 'package:qashpal/frontend/account_transactions/deposit_history_screen.dart';
 import 'package:qashpal/frontend/account_transactions/withdrawal_history_screen.dart';
 import 'package:qashpal/frontend/deposit_page/infor_card_widget.dart';
+import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 
 class AccountTransactionsPage extends StatelessWidget {
+  final List<AccountTransactions>? transactions;
+
+  const AccountTransactionsPage({super.key, required this.transactions});
   @override
   Widget build(BuildContext context) {
     List<Widget> myToggleButtons = [
@@ -57,22 +62,13 @@ class AccountTransactionsPage extends StatelessWidget {
               //   ),
               // ),
               // const Divider(height: 2),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Welcome back ${userProvider.user!.id}",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17,
-                  ),
-                ),
-              ),
+              welcomeBackTextWidget(),
               inforNotificationCardWidget("Activation Balance:",
                   userProvider.user!.accountBalance.toStringAsFixed(2)),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Transactions summary",
+                  "Withdrawals summary",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -81,7 +77,7 @@ class AccountTransactionsPage extends StatelessWidget {
                 ),
               ),
               // const Divider(height: 2),
-              withdrawalsTab(withdrawalsList)
+              withdrawalsTab(transactions)
             ],
           );
         },

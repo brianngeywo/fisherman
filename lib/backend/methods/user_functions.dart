@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/models/user_model.dart';
 
 class UserMethods {
@@ -47,8 +47,6 @@ class UserMethods {
       });
     }
   }
-
-
 }
 
 final MyUser myuser = MyUser(
@@ -65,6 +63,7 @@ final MyUser myuser = MyUser(
   bestAgent: Random().nextBool(),
   referredBy: randomUserId,
   username: '1234567',
+  // dateJoined: DateTime.now(),
 );
 // randomUser
 final MyUser randomUser = MyUser(
@@ -81,4 +80,5 @@ final MyUser randomUser = MyUser(
   bestAgent: Random().nextBool(),
   referredBy: "1234567",
   username: randomUserId,
+  // dateJoined: DateTime.now(),
 );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/methods/user_functions.dart';
 
 Widget mainProfilePageTopWidget(
@@ -27,10 +27,15 @@ Widget mainProfilePageTopWidget(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Center(
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(userProvider.user!.photoUrl),
-              radius: 37.5,
+            child: Icon(
+              FontAwesomeIcons.solidUserCircle,
+              size: 75,
+              color: Colors.white,
             ),
+            // CircleAvatar(
+            //   backgroundImage: NetworkImage(userProvider.user!.photoUrl),
+            //   radius: 37.5,
+            // ),
           ),
           Padding(
             padding: const EdgeInsets.only(

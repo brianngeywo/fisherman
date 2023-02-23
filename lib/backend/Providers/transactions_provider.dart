@@ -1,6 +1,6 @@
 import 'package:qashpal/backend/models/account_transactions.dart';
 
-import '../constants.dart';
+import '../constants/constants.dart';
 
 class TransactionsProvider {
   static final TransactionsProvider _singleton =

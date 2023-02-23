@@ -5,7 +5,7 @@ import 'package:qashpal/backend/methods/user_functions.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/personal_profile/widgets.dart';
 
-import '../../backend/constants.dart';
+import '../../backend/constants/constants.dart';
 
 class ProfilePageScreen extends StatelessWidget {
   const ProfilePageScreen({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class ProfilePageScreen extends StatelessWidget {
           children: [
             mainProfilePageTopWidget(context),
             accountRows("Account Balance:",
-                "KES ${userProvider.user!.accountBalance.toStringAsFixed(2)}"),
+                "KES ${userProvider.user!.accountBalance.toStringAsFixed(0)}"),
             const Divider(thickness: 1),
             accountRows("Phone:", userProvider.user!.phoneNumber),
             const Divider(thickness: 1),

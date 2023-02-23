@@ -6,7 +6,7 @@ Widget mainBottomNavigationBarItmIconButton(IconData icon) {
     child: Center(
       child: Icon(
         icon,
-        size: 30,
+        size: 20,
         color: const Color.fromARGB(255, 1, 13, 39),
       ),
     ),

@@ -32,6 +32,7 @@ class UserProvider {
       welcomeBonus: data["welcomeBonus"],
       bestAgent: data["bestAgent"],
       username: data["username"],
+      // dateJoined: data["dateJoined"],
     );
   }
 }

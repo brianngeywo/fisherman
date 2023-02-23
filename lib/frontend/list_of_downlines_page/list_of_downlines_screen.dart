@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/methods/referral_methods.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 
@@ -35,7 +35,6 @@ Widget listOfDownLinesScreen(BuildContext context) {
                     myDataColumn('Username'),
                     myDataColumn('Phone Number'),
                     myDataColumn('Status'),
-                    myDataColumn('Network'),
                   ],
                   rows: referralsList!.isNotEmpty && referralsList != null
                       ? referralsList!.map<DataRow>((item) {
@@ -45,12 +44,10 @@ Widget listOfDownLinesScreen(BuildContext context) {
                             item.userActivated
                                 ? const DataCell(Text("Active"))
                                 : const DataCell(Text("Inactive")),
-                            DataCell(Text(item.carrierNetwork)),
                           ]);
                         }).toList()
                       : [
                           const DataRow(cells: [
-                            DataCell(Text("")),
                             DataCell(Text("")),
                             DataCell(Text("")),
                             DataCell(Text("")),

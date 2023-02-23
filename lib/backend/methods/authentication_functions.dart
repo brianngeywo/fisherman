@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/methods/user_functions.dart';
 import 'package:qashpal/backend/models/user_model.dart';
 
@@ -99,6 +99,7 @@ class SMSCodeVerification {
         bestAgent: bestAgent,
         referredBy: '1234567',
         username: randomUserId,
+        // dateJoined: DateTime.now(),
       );
 
       // Store the user in Firestore

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
+import 'package:qashpal/backend/constants/payment_providers.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/deposit_page/safaricom_mpesa_deposit_instructions.dart';
+import 'package:qashpal/frontend/deposit_page/widgets.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
@@ -16,16 +18,16 @@ class SelectPaymentOptionScreen extends StatelessWidget {
       backgroundColor: mainPageBackgroundColor,
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          padding: EdgeInsets.all(8),
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  userProvider.user!.accountBalance.toStringAsFixed(2),
+                  "Account balance: ${userProvider.user!.accountBalance.toStringAsFixed(0)}",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(206, 51, 94, 178),
                   ),
@@ -34,25 +36,33 @@ class SelectPaymentOptionScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Select payment method",
+                  "Choose a payment method",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                     // color: Colors.amber,
                   ),
                 ),
               ),
-              cashoutMethodWidgetCard(Icons.phone_android, "Airtel Money"),
-              GestureDetector(
-                onTap: () => navigatorKey.currentState?.push(
-                  MaterialPageRoute(
-                    builder: (cotext) => MpesaDepositInstructionsPage(),
-                  ),
-                ),
-                child: cashoutMethodWidgetCard(
-                  Icons.phone_iphone,
-                  "Safaricom Mpesa",
-                ),
+              GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                children: paymentProviders
+                    .map(
+                      (e) => GestureDetector(
+                        onTap: () => navigatorKey.currentState?.push(
+                          MaterialPageRoute(
+                            builder: (cotext) => MpesaDepositInstructionsPage(),
+                          ),
+                        ),
+                        child: depositMethodWidgetCard(
+                          ic: e.logo,
+                          text: e.name,
+                          color: e.color,
+                        ),
+                      ),
+                    )
+                    .toList(),
               ),
             ],
           ),

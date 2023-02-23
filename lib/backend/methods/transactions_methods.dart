@@ -1,7 +1,7 @@
 // Generate a list of fiction transactions
 import 'dart:math';
 
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/models/account_transactions.dart';
 
 class TransactionMethods {
@@ -71,7 +71,7 @@ class TransactionMethods {
 AccountTransactions accountTransaction = AccountTransactions(
   transactionId: TransactionMethods().generateTransactionId(),
   amount: Random().nextInt(500).toDouble(),
-  status: Random().nextBool(),
-  isDeposit: Random().nextBool(),
+  status: true,
+  isDeposit: false,
   userId: '1234567',
 );

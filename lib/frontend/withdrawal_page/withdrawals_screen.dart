@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/withdrawal_page/cashout_methods_screen.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
+import '../account_transactions/main_account_transactions_page.dart';
+
 Widget withdrawalsScreen() {
   String? text;
   return Center(
     child: Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(5.0),
       child: ListView(
         children: [
           welcomeBackTextWidget(),
           myEarningsWidgetCard(),
-          const Divider(height: 2),
           // Center(
           //   child: const Padding(
           //     padding: EdgeInsets.all(8.0),
@@ -32,14 +33,13 @@ Widget withdrawalsScreen() {
           //   child: withdrawTextFormField(text),
           // ),
           Container(
-            margin: const EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10, bottom: 10),
             child: mainSubmitButton(
               text: "Proceed to withdrawal",
               buttonColor: const Color.fromARGB(255, 1, 13, 39),
               myFunc: (() {
                 navigatorKey.currentState!.push(MaterialPageRoute(
                     builder: (cotext) => CashoutMethodsScreen()));
-                print("object");
                 // if (_withdrawalScreenFormKey.currentState!.validate()) {
                 //   _withdrawalScreenFormKey.currentState!.save();
                 //   print(text);
@@ -47,6 +47,7 @@ Widget withdrawalsScreen() {
               }),
             ),
           ),
+          const Divider(height: 2),
           Container(
             margin: const EdgeInsets.only(top: 10),
             padding: EdgeInsets.all(8),
@@ -54,16 +55,24 @@ Widget withdrawalsScreen() {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Previous Transactions",
+                  "Previous Withdrawals",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  "Show all",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: logoColor,
+                TextButton(
+                  onPressed: () {
+                    navigatorKey.currentState!.push(MaterialPageRoute(
+                        builder: (context) => AccountTransactionsPage(
+                              transactions: withdrawalsList!,
+                            )));
+                  },
+                  child: Text(
+                    "Show all",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: logoColor,
+                    ),
                   ),
                 ),
               ],

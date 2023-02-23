@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qashpal/backend/verification_methods.dart';
+import 'package:qashpal/backend/methods/verification_methods.dart';
 import 'package:qashpal/bloc/form_actions_bloc/form_actions_bloc.dart';
 import 'package:qashpal/bloc/passwords_viscibility_bloc'
     '/passwords_viscibility_bloc'

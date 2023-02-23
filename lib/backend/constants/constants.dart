@@ -5,7 +5,7 @@ import 'package:qashpal/backend/Providers/user_provider.dart';
 import 'package:qashpal/backend/methods/transactions_methods.dart';
 import 'package:qashpal/backend/methods/user_functions.dart';
 import 'package:qashpal/backend/models/mobile_network_model.dart';
-import 'package:qashpal/backend/models/user_model.dart';
+import 'package:qashpal/backend/models/payment_provider.dart';
 
 var firestore = FirebaseFirestore.instance;
 var referralCollection = FirebaseFirestore.instance.collection("referrals");
@@ -23,3 +23,18 @@ final referralsList = referralprovider.referrals;
 final withdrawalsList = transactionsProvider.withdrawals;
 final depositsList = transactionsProvider.deposits;
 List<MobileNetwork> mobileNetworks = [];
+double minimumAmountToWithdraw = 450.00;
+List<MobileNetwork> nets = [
+  MobileNetwork(
+    nickName: "nickName",
+    phoneNumber: "0798767570",
+    firstName: "firstName",
+    lastName: "lastName",
+  ),
+  MobileNetwork(
+    nickName: "nickName2",
+    phoneNumber: "0714721937",
+    firstName: "firstName2",
+    lastName: "lastName2",
+  )
+];

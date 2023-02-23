@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 
 Widget welcomeBackTextWidget() {
   return Padding(

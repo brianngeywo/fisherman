@@ -1,4 +1,4 @@
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/models/user_model.dart';
 
 class ReferralProvider {
@@ -36,6 +36,7 @@ class ReferralProvider {
         bestAgent: data["bestAgent"],
         referredBy: data["referredBy"],
         username: data["username"],
+        // dateJoined: data["dateJoined"],
       );
     }).toList();
   }

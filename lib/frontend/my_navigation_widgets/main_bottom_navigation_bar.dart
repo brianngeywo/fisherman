@@ -17,9 +17,9 @@ Widget bottomNavigationBar(BuildContext context) {
     items: <Widget>[
       mainBottomNavigationBarItmIconButton(FontAwesomeIcons.house),
       mainBottomNavigationBarItmIconButton(FontAwesomeIcons.moneyBillWave),
-      mainBottomNavigationBarItmIconButton(FontAwesomeIcons.handHoldingDollar),
+      mainBottomNavigationBarItmIconButton(FontAwesomeIcons.bank),
       mainBottomNavigationBarItmIconButton(FontAwesomeIcons.listCheck),
-      mainBottomNavigationBarItmIconButton(FontAwesomeIcons.share),
+      // mainBottomNavigationBarItmIconButton(FontAwesomeIcons.share),
     ],
     onTap: (index) {
       switch (index) {
@@ -41,10 +41,10 @@ Widget bottomNavigationBar(BuildContext context) {
           BlocProvider.of<BottomNavigationBloc>(context)
               .add(NavigateToDownLinesListPageEvent(index));
           break;
-        case 4:
-          BlocProvider.of<BottomNavigationBloc>(context)
-              .add(NavigateToShareAndInvitesPageEvent(index));
-          break;
+        // case 4:
+        //   BlocProvider.of<BottomNavigationBloc>(context)
+        //       .add(NavigateToShareAndInvitesPageEvent(index));
+        //   break;
       }
     },
     letIndexChange: (index) => true,

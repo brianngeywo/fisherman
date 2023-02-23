@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/bloc/account_transactions_tabs_bloc'
     '/account_transactions_tabs_bloc.dart';
 import 'package:qashpal/bloc/bottom_navigation_bloc/bottom_navigation_bloc.dart';
@@ -30,9 +30,8 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider<BottomNavigationBloc>(
-          create: (context) =>
-              BottomNavigationBloc(WelcomeScreenNavigationBloc())
-        ),
+            create: (context) =>
+                BottomNavigationBloc(WelcomeScreenNavigationBloc())),
         BlocProvider<FormActionsBloc>(create: (context) => FormActionsBloc()),
         BlocProvider<AccountTransactionsTabsBloc>(
             create: (context) => AccountTransactionsTabsBloc()),

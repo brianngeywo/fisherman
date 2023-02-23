@@ -7,16 +7,17 @@ import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
-class AddNewNetworkAccountPage extends StatefulWidget {
+class EditNetworkAccountPage extends StatefulWidget {
   final PaymentProvider provider;
-  AddNewNetworkAccountPage({super.key, required this.provider});
+  final MobileNetwork mobileNetwork;
+  EditNetworkAccountPage(
+      {super.key, required this.provider, required this.mobileNetwork});
 
   @override
-  State<AddNewNetworkAccountPage> createState() =>
-      _AddNewNetworkAccountPageState();
+  State<EditNetworkAccountPage> createState() => _EditNetworkAccountPageState();
 }
 
-class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
+class _EditNetworkAccountPageState extends State<EditNetworkAccountPage> {
   String nickname = "";
 
   String phone = "";
@@ -24,6 +25,18 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
   String name1 = "";
 
   String name2 = "";
+  @override
+  void initState() {
+    // TODO: implement initState
+    String nickname = widget.mobileNetwork.nickName;
+
+    String phone = widget.mobileNetwork.phoneNumber;
+
+    String name1 = widget.mobileNetwork.firstName;
+
+    String name2 = widget.mobileNetwork.lastName;
+    super.initState();
+  }
 
   final addNetworkFormKey = GlobalKey<FormState>();
 
@@ -52,7 +65,7 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
             child: ListView(
               children: [
                 Text(
-                  "Add account",
+                  "Edit account",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,

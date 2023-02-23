@@ -1,4 +1,4 @@
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/models/user_model.dart';
 
 class ReferralMethods {

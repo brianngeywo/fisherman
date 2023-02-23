@@ -74,9 +74,11 @@ showAlert(BuildContext context, String text) {
 
 Widget mainSubmitButton(
     {required String text, required Color buttonColor, Function? myFunc}) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+  return Container(
+    color: mainPageBackgroundColor,
+    // padding: const EdgeInsets.only(left: 8.0, right: 8.0),
     child: MaterialButton(
+      padding: const EdgeInsets.all(5.0),
       onPressed: () => myFunc!(),
       minWidth: double.infinity,
       color: buttonColor,

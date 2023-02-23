@@ -22,7 +22,7 @@ class MainProfilePage extends StatelessWidget {
           return Scaffold(
             backgroundColor: mainPageBackgroundColor,
             appBar: topAppBar(context,
-                automaticallyImplyLeading: false, showUserIconDropdown: true),
+                automaticallyImplyLeading: true, showUserIconDropdown: false),
             body: const ProfilePageScreen(),
           );
         } else {

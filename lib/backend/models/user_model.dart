@@ -14,6 +14,7 @@ class MyUser {
   final bool bestAgent;
   final String referredBy;
   final String username;
+  // final DateTime dateJoined;
 
   MyUser({
     required this.referredBy,
@@ -29,6 +30,7 @@ class MyUser {
     required this.welcomeBonus,
     required this.bestAgent,
     required this.username,
+    // required this.dateJoined,
   });
 
   Map<String, dynamic> toMap() {
@@ -46,6 +48,7 @@ class MyUser {
       'bestAgent': bestAgent,
       'referredBy': referredBy,
       'username': username,
+      // 'dateJoined': dateJoined,
     };
   }
 
@@ -64,6 +67,7 @@ class MyUser {
       welcomeBonus: welcomeBonus,
       bestAgent: bestAgent,
       username: username,
+      // dateJoined: dateJoined,
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/share_link_to_profile_page/widgets.dart';
 import 'package:qashpal/frontend/success_snackbar.dart';

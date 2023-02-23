@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qashpal/backend/constants.dart';
+import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/methods/transactions_methods.dart';
 import 'package:qashpal/bloc/connectivity_bloc/connectivity_bloc.dart';
 import 'package:qashpal/connectivity_lost_page.dart';
@@ -20,7 +20,7 @@ class MainAccountTransactionsPage extends StatelessWidget {
       },
       builder: (context, isConnected) {
         if (isConnected) {
-          return AccountTransactionsPage();
+          return AccountTransactionsPage(transactions: withdrawalsList);
         } else {
           return const ConnectivityLostPage();
         }
