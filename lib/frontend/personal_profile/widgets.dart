@@ -7,8 +7,8 @@ Widget mainProfilePageTopWidget(
   BuildContext context,
 ) {
   return Container(
-    height: MediaQuery.of(context).size.height * 0.15,
-    margin: const EdgeInsets.only(bottom: 8),
+    height: MediaQuery.of(context).size.height * 0.18,
+    // margin: const EdgeInsets.only(bottom: 8),
     decoration: const BoxDecoration(
       gradient: RadialGradient(
         colors: [
@@ -23,10 +23,10 @@ Widget mainProfilePageTopWidget(
     child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Center(
+          const Center(
             child: Icon(
               FontAwesomeIcons.solidUserCircle,
               size: 75,
@@ -44,7 +44,7 @@ Widget mainProfilePageTopWidget(
               right: 8,
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
@@ -52,12 +52,13 @@ Widget mainProfilePageTopWidget(
                   child: Text(
                     "Welcome back ${userProvider.user?.id}!",
                     style: const TextStyle(
-                      // fontSize: 17.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
                 ),
+                SizedBox(height: 5),
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(
@@ -69,6 +70,7 @@ Widget mainProfilePageTopWidget(
                     ),
                   ),
                 ),
+                SizedBox(height: 5),
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(

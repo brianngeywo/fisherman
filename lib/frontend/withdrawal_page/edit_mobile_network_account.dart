@@ -28,13 +28,13 @@ class _EditNetworkAccountPageState extends State<EditNetworkAccountPage> {
   @override
   void initState() {
     // TODO: implement initState
-    String nickname = widget.mobileNetwork.nickName;
+    nickname = widget.mobileNetwork.nickName;
 
-    String phone = widget.mobileNetwork.phoneNumber;
+    phone = widget.mobileNetwork.phoneNumber;
 
-    String name1 = widget.mobileNetwork.firstName;
+    name1 = widget.mobileNetwork.firstName;
 
-    String name2 = widget.mobileNetwork.lastName;
+    name2 = widget.mobileNetwork.lastName;
     super.initState();
   }
 
@@ -64,7 +64,7 @@ class _EditNetworkAccountPageState extends State<EditNetworkAccountPage> {
             key: addNetworkFormKey,
             child: ListView(
               children: [
-                Text(
+                const Text(
                   "Edit account",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -82,17 +82,20 @@ class _EditNetworkAccountPageState extends State<EditNetworkAccountPage> {
                 Text(
                   "Enter your ${widget.provider.name} account "
                   "details below to cash out",
-                  style: TextStyle(
+                  style: const TextStyle(
                     height: 1.2,
                   ),
                 ),
-                SizedBox(height: 10),
-                withdrawTextFormField(
+                const SizedBox(height: 10),
+                editNetworkAccountTextFormField(
                     text: nickname, hintText: "Account nickname"),
-                withdrawTextFormField(text: phone, hintText: "phone number"),
-                withdrawTextFormField(text: name1, hintText: "first name"),
-                withdrawTextFormField(text: name2, hintText: "last name"),
-                SizedBox(height: 10),
+                editNetworkAccountTextFormField(
+                    text: phone, hintText: "Phone Number"),
+                editNetworkAccountTextFormField(
+                    text: name1, hintText: "First name"),
+                editNetworkAccountTextFormField(
+                    text: name2, hintText: "Last name"),
+                const SizedBox(height: 10),
               ],
             ),
           ),

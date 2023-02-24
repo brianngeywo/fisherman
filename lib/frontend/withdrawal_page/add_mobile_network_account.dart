@@ -18,14 +18,21 @@ class AddNewNetworkAccountPage extends StatefulWidget {
 
 class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
   String nickname = "";
-
   String phone = "";
-
   String name1 = "";
-
   String name2 = "";
 
   final addNetworkFormKey = GlobalKey<FormState>();
+
+  void _submitForm() {
+    if (addNetworkFormKey.currentState!.validate()) {
+      addNetworkFormKey.currentState!.save();
+      print(nickname);
+      print(phone);
+      print(name1);
+      print(name2);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +47,7 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
         text: 'Save',
         buttonColor: mainButtonsColor,
         myFunc: (() {
-          addNetworkFormKey.currentState!.save();
-          print(name2);
+          _submitForm();
         }),
       ),
       body: Center(
@@ -51,7 +57,7 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
             key: addNetworkFormKey,
             child: ListView(
               children: [
-                Text(
+                const Text(
                   "Add account",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -69,17 +75,17 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
                 Text(
                   "Enter your ${widget.provider.name} account "
                   "details below to cash out",
-                  style: TextStyle(
+                  style: const TextStyle(
                     height: 1.2,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 withdrawTextFormField(
                     text: nickname, hintText: "Account nickname"),
                 withdrawTextFormField(text: phone, hintText: "phone number"),
                 withdrawTextFormField(text: name1, hintText: "first name"),
                 withdrawTextFormField(text: name2, hintText: "last name"),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
               ],
             ),
           ),

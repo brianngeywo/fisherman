@@ -78,11 +78,11 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 10),
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Select account",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -160,7 +160,7 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
             ],
           ),
         ),

@@ -43,7 +43,7 @@ Widget depositScreen() {
               buttonColor: const Color.fromARGB(255, 1, 13, 39),
               myFunc: (() {
                 navigatorKey.currentState!.push(MaterialPageRoute(
-                    builder: (cotext) => SelectPaymentOptionScreen()));
+                    builder: (cotext) => const SelectPaymentOptionScreen()));
                 print("object");
                 // if (_withdrawalScreenFormKey.currentState!.validate()) {
                 //   _withdrawalScreenFormKey.currentState!.save();
@@ -54,8 +54,8 @@ Widget depositScreen() {
           ),
 
           const Divider(height: 2),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Text(
               "Accepted payment methods",
               style: TextStyle(
@@ -67,7 +67,7 @@ Widget depositScreen() {
           Center(
             child: GridView.count(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
               children: paymentProviders
                   .map((e) => depositMethodWidgetCard(

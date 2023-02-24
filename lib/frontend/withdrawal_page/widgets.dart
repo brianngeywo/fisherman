@@ -45,18 +45,58 @@ Widget withdrawTextFormField(
   );
 }
 
+Widget editNetworkAccountTextFormField(
+    {required String? text, required String? hintText}) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child:
+        StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+      return TextFormField(
+        validator: (value) =>
+            value!.isEmpty ? 'Enter amount to withdraw' : null,
+        onSaved: (value) {
+          setState(() {
+            text = value;
+          });
+        },
+        onChanged: (value) {
+          setState(() {
+            text = value;
+          });
+        },
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          filled: true,
+          // fillColor: const Color.fromRGBO(232, 240, 254, 0.8),
+          hintText: hintText,
+          helperText: hintText,
+          labelText: hintText,
+          suffixStyle: const TextStyle(
+            color: Color.fromARGB(206, 51, 94, 178),
+            // Color.fromARGB(255, 1, 13, 39),
+          ),
+        ),
+        keyboardType: TextInputType.number,
+      );
+    }),
+  );
+}
+
 Widget myEarningsWidgetCard() {
   return Card(
     elevation: 5,
-    margin: EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(
+    margin: const EdgeInsets.all(10),
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     child: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         gradient: RadialGradient(
-          colors: const [
+          colors: [
             Color.fromRGBO(107, 145, 251, 1),
             Color.fromRGBO(10, 67, 128, 1),
           ],
@@ -70,23 +110,23 @@ Widget myEarningsWidgetCard() {
         children: [
           Text(
             "My earnings".toUpperCase(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 7),
+          const SizedBox(height: 7),
           Text(
             "total KES ${userProvider.user!.totalWithdrawals.toStringAsFixed(0)}"
                 .toUpperCase(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 7),
+          const SizedBox(height: 7),
           Text(
             "KES ${userProvider.user!.accountBalance.toStringAsFixed(0)}"
                 .toUpperCase(),
@@ -99,7 +139,7 @@ Widget myEarningsWidgetCard() {
                   : Colors.amber,
             ),
           ),
-          SizedBox(height: 7),
+          const SizedBox(height: 7),
           LinearProgressIndicator(
             backgroundColor:
                 userProvider.user!.accountBalance >= minimumAmountToWithdraw
@@ -107,12 +147,12 @@ Widget myEarningsWidgetCard() {
                     : mainPageBackgroundColor,
             value: userProvider.user!.accountBalance / minimumAmountToWithdraw,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
             userProvider.user!.accountBalance <= minimumAmountToWithdraw
                 ? "Earn KES ${(minimumAmountToWithdraw - userProvider.user!.accountBalance).toStringAsFixed(0)} more to cash out"
                 : "",
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),
@@ -127,8 +167,8 @@ Widget cashoutMethodWidgetCard(Color? color,
   return Card(
     color: color,
     elevation: 5,
-    margin: EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(
+    margin: const EdgeInsets.all(10),
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     child: Container(
@@ -138,12 +178,12 @@ Widget cashoutMethodWidgetCard(Color? color,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(ic),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             text1,
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             "Min. cashout - KSHS $minimumAmountToWithdraw",
             style: TextStyle(
@@ -151,7 +191,7 @@ Widget cashoutMethodWidgetCard(Color? color,
               color: mainButtonsColor,
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           userProvider.user!.accountBalance < minimumAmountToWithdraw
               ? Row(
                   children: const [
@@ -169,7 +209,7 @@ Widget cashoutMethodWidgetCard(Color? color,
                     ),
                   ],
                 )
-              : SizedBox(),
+              : const SizedBox(),
         ],
       ),
     ),
@@ -186,22 +226,22 @@ Widget selectPaymentOtionRadioListTile({
     builder: (BuildContext context, StateSetter setState) {
       return Card(
         elevation: 5,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(8),
           ),
         ),
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: SizedBox(
           height: 110,
           child: Center(
             child: RadioListTile(
-              activeColor: Color.fromARGB(206, 51, 94, 178),
+              activeColor: const Color.fromARGB(206, 51, 94, 178),
               title: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 18,
                   ),
@@ -217,7 +257,7 @@ Widget selectPaymentOtionRadioListTile({
                       size: 18,
                       color: subTitleColor,
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Text(
                       number,
                       style: TextStyle(
@@ -251,11 +291,11 @@ Widget transactionsScrollableRowCards(List<AccountTransactions> list) {
       children: list!
           .map(
             (e) => Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Card(
                 elevation: 5,
-                margin: EdgeInsets.all(10),
-                shape: RoundedRectangleBorder(
+                margin: const EdgeInsets.all(10),
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
@@ -270,19 +310,19 @@ Widget transactionsScrollableRowCards(List<AccountTransactions> list) {
                     children: [
                       Text(
                         "${e.transactionId}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         "Amount: ${e.amount.toStringAsFixed(2)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Date: 12/1/2023",
                         style: TextStyle(
                           fontSize: 15,

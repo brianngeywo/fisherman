@@ -5,7 +5,6 @@ import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/deposit_page/safaricom_mpesa_deposit_instructions.dart';
 import 'package:qashpal/frontend/deposit_page/widgets.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
-import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
 class SelectPaymentOptionScreen extends StatelessWidget {
   const SelectPaymentOptionScreen({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class SelectPaymentOptionScreen extends StatelessWidget {
       backgroundColor: mainPageBackgroundColor,
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: ListView(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -26,15 +25,15 @@ class SelectPaymentOptionScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "Account balance: ${userProvider.user!.accountBalance.toStringAsFixed(0)}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(206, 51, 94, 178),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Choose a payment method",
                   style: TextStyle(
@@ -52,7 +51,8 @@ class SelectPaymentOptionScreen extends StatelessWidget {
                       (e) => GestureDetector(
                         onTap: () => navigatorKey.currentState?.push(
                           MaterialPageRoute(
-                            builder: (cotext) => MpesaDepositInstructionsPage(),
+                            builder: (context) =>
+                                const MpesaDepositInstructionsPage(),
                           ),
                         ),
                         child: depositMethodWidgetCard(

@@ -56,11 +56,12 @@ class _CashoutMethodsScreenState extends State<CashoutMethodsScreen> {
                 paymentProviders.length,
                 (index) => GestureDetector(
                   onTap: () {
-                    print(index);
-                    setState(() {});
+                    setState(() {
+                      _selectedItem = index;
+                    });
                     navigatorKey.currentState?.push(
                       MaterialPageRoute(
-                        builder: (cotext) => AddPaymentOptionPage(
+                        builder: (context) => AddPaymentOptionPage(
                           provider: paymentProviders[index],
                         ),
                       ),
@@ -69,7 +70,7 @@ class _CashoutMethodsScreenState extends State<CashoutMethodsScreen> {
                   child: cashoutMethodWidgetCard(
                       ic: paymentProviders[index].logo,
                       text1: paymentProviders[index].name,
-                      index == paymentProviders[index]
+                      index == _selectedItem
                           ? paymentProviders[index].color
                           : Colors.white),
                 ),

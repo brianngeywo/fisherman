@@ -58,7 +58,7 @@ SizedBox drawerHeader() {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: 7),
+                          const SizedBox(height: 7),
                           Text(
                             userProvider.user!.userActivated
                                 ? "Account active"
@@ -96,12 +96,12 @@ SizedBox drawerHeader() {
 Widget homepageEarningsWidgetCard(BuildContext context) {
   return Card(
     elevation: 5,
-    margin: EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(
+    margin: const EdgeInsets.all(10),
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     child: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color: Color.fromRGBO(10, 67, 128, 1),
         // gradient: RadialGradient(
@@ -125,23 +125,23 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
                 children: [
                   Text(
                     "My earnings".toUpperCase(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
                   Text(
                     "total KES ${userProvider.user!.totalWithdrawals.toStringAsFixed(0)}"
                         .toUpperCase(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
                 ],
               ),
               TextButton(
@@ -172,13 +172,13 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
           Text(
             "KES ${userProvider.user!.accountBalance.toStringAsFixed(0)}"
                 .toUpperCase(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
               color: Colors.amber,
             ),
           ),
-          SizedBox(height: 7),
+          const SizedBox(height: 7),
           LinearProgressIndicator(
             backgroundColor:
                 userProvider.user!.accountBalance <= minimumAmountToWithdraw
@@ -186,12 +186,12 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
                     : Colors.green,
             value: calculateLinearIndicator(),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
             userProvider.user!.accountBalance <= minimumAmountToWithdraw
                 ? "Earn KES ${(minimumAmountToWithdraw - userProvider.user!.accountBalance).toStringAsFixed(0)} more to cash out"
                 : "",
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),
