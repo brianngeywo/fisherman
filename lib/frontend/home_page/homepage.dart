@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qashpal/bloc/bottom_navigation_bloc/bottom_navigation_bloc.dart';
 import 'package:qashpal/bloc/welcome_screen_navigation_bloc/welcome_screen_navigation_bloc.dart';
 import 'package:qashpal/frontend/account_transactions/main.dart';
-import 'package:qashpal/frontend/account_transactions/main_account_transactions_page.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/deposit_page/deposit_screen.dart';
 import 'package:qashpal/frontend/home_page/homescreen.dart';
@@ -14,7 +13,6 @@ import 'package:qashpal/frontend/my_navigation_widgets/main_bottom_navigation_ba
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/top_app_bar_dropdown_list_textbuttons.dart';
 import 'package:qashpal/frontend/personal_profile/main_profile_page.dart';
-import 'package:qashpal/frontend/share_link_to_profile_page/share_link_profile_screen.dart';
 import 'package:qashpal/frontend/welcome_page/main.dart';
 import 'package:qashpal/frontend/withdrawal_page/withdrawals_screen.dart';
 
@@ -56,7 +54,7 @@ class MyHomePage extends StatelessWidget {
       ),
       topAppBarDropDownListTextButton(
         context,
-        FontAwesomeIcons.bank,
+        FontAwesomeIcons.buildingColumns,
         2,
         "Request withdrawal",
       ),

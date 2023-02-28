@@ -3,9 +3,6 @@ import 'dart:core';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-const Color homepageListtextColor = Colors.white;
-const FontWeight homepageListtextWeight = FontWeight.w500;
-const double homepageListTextSize = 16;
 int pageIndex = 0;
 Color mainPageBackgroundColor = const Color.fromRGBO(232, 240, 254, 1);
 Color accountTransactionsTabTextColor = Colors.black;
@@ -72,16 +69,15 @@ showAlert(BuildContext context, String text) {
   );
 }
 
-Widget mainSubmitButton(
-    {required String text, required Color buttonColor, Function? myFunc}) {
+Widget mainSubmitButton({required String text, Function? myFunc}) {
   return Container(
     color: mainPageBackgroundColor,
-    // padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+    padding: const EdgeInsets.all(8.0),
     child: MaterialButton(
       padding: const EdgeInsets.all(5.0),
       onPressed: () => myFunc!(),
       minWidth: double.infinity,
-      color: buttonColor,
+      color: mainButtonsColor,
       textColor: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(10.0),

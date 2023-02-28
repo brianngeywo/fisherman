@@ -24,7 +24,7 @@ List<PaymentProvider> paymentProviders = [
     color: Colors.blueAccent,
   ),
   PaymentProvider(
-    logo: FontAwesomeIcons.bank,
+    logo: FontAwesomeIcons.buildingColumns,
     name: "Bank",
     color: Colors.blueGrey,
   ),

@@ -26,7 +26,7 @@ Widget depositsTab(dynamic deposits) {
               const DataRow(cells: [
                 DataCell(Text("")),
                 DataCell(Text("")),
-                const DataCell(Text("")),
+                DataCell(Text("")),
               ]),
             ],
     ),

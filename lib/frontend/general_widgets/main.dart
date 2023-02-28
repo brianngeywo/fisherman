@@ -3,10 +3,10 @@ import 'package:qashpal/backend/constants/constants.dart';
 
 Widget welcomeBackTextWidget() {
   return Padding(
-    padding: EdgeInsets.all(8.0),
+    padding: const EdgeInsets.all(8.0),
     child: Text(
       "Welcome back ${userProvider.user!.id}",
-      style: TextStyle(
+      style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 17,
       ),

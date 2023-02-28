@@ -21,9 +21,7 @@ class ProfilePageScreen extends StatelessWidget {
             mainProfilePageTopWidget(context),
             GestureDetector(
               onTap: () {
-                Clipboard.setData(ClipboardData(
-                    text:
-                        "https://www.qashpal.co.ke/${userProvider.user!.id}/invite"));
+                Clipboard.setData(ClipboardData(text: referralLink));
 
                 ScaffoldMessenger.of(context).showSnackBar(
                     snackBar("Referral link copied!", Colors.lightGreen));

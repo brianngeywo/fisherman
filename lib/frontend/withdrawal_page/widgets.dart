@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/frontend/constants.dart';
 
@@ -52,6 +51,7 @@ Widget editNetworkAccountTextFormField(
     child:
         StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
       return TextFormField(
+        initialValue: text,
         validator: (value) =>
             value!.isEmpty ? 'Enter amount to withdraw' : null,
         onSaved: (value) {
@@ -162,8 +162,8 @@ Widget myEarningsWidgetCard() {
   );
 }
 
-Widget cashoutMethodWidgetCard(Color? color,
-    {required IconData ic, required String text1}) {
+Widget cashoutMethodWidgetCard(
+    {required IconData ic, required String text1, required Color color}) {
   return Card(
     color: color,
     elevation: 5,
@@ -177,18 +177,25 @@ Widget cashoutMethodWidgetCard(Color? color,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(ic),
+          Icon(
+            ic,
+            color: color != Colors.white ? Colors.white : mainButtonsColor,
+          ),
           const SizedBox(height: 5),
           Text(
             text1,
-            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+              color: color != Colors.white ? Colors.white : mainButtonsColor,
+            ),
           ),
           const SizedBox(height: 5),
           Text(
             "Min. cashout - KSHS $minimumAmountToWithdraw",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: mainButtonsColor,
+              color: color != Colors.white ? Colors.white : mainButtonsColor,
             ),
           ),
           const SizedBox(height: 5),
@@ -216,79 +223,11 @@ Widget cashoutMethodWidgetCard(Color? color,
   );
 }
 
-String? paymentMethod = "mpesa";
-Widget selectPaymentOtionRadioListTile({
-  required String title,
-  required String number,
-  required Color subTitleColor,
-}) {
-  return StatefulBuilder(
-    builder: (BuildContext context, StateSetter setState) {
-      return Card(
-        elevation: 5,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-        ),
-        margin: const EdgeInsets.all(10),
-        child: SizedBox(
-          height: 110,
-          child: Center(
-            child: RadioListTile(
-              activeColor: const Color.fromARGB(206, 51, 94, 178),
-              title: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Icons.call,
-                      size: 18,
-                      color: subTitleColor,
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      number,
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: subTitleColor,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              value: "mpesa $number",
-              groupValue: paymentMethod,
-              onChanged: (value) {
-                setState(() {
-                  paymentMethod = value.toString();
-                });
-              },
-            ),
-          ),
-        ),
-      );
-    },
-  );
-}
-
 Widget transactionsScrollableRowCards(List<AccountTransactions> list) {
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
     child: Row(
-      children: list!
+      children: list
           .map(
             (e) => Padding(
               padding: const EdgeInsets.all(8.0),
@@ -309,7 +248,7 @@ Widget transactionsScrollableRowCards(List<AccountTransactions> list) {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        "${e.transactionId}",
+                        e.transactionId,
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,

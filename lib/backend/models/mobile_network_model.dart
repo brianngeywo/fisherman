@@ -1,5 +1,3 @@
-import 'package:qashpal/backend/models/payment_provider.dart';
-
 class MobileNetwork {
   // final PaymentProvider prov;
   final String nickName;

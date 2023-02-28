@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/models/mobile_network_model.dart';
 import 'package:qashpal/backend/models/payment_provider.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
 class EditNetworkAccountPage extends StatefulWidget {
   final PaymentProvider provider;
   final MobileNetwork mobileNetwork;
-  EditNetworkAccountPage(
+  const EditNetworkAccountPage(
       {super.key, required this.provider, required this.mobileNetwork});
 
   @override
@@ -51,10 +49,9 @@ class _EditNetworkAccountPageState extends State<EditNetworkAccountPage> {
       ),
       bottomSheet: mainSubmitButton(
         text: 'Save',
-        buttonColor: mainButtonsColor,
+        // buttonColor: mainButtonsColor,
         myFunc: (() {
           addNetworkFormKey.currentState!.save();
-          print(name2);
         }),
       ),
       body: Center(

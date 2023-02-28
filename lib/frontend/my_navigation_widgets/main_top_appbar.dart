@@ -11,7 +11,7 @@ PreferredSizeWidget topAppBar(BuildContext context,
     leading: automaticallyImplyLeading
         ? IconButton(
             onPressed: () => navigatorKey.currentState?.pop(),
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
             ),

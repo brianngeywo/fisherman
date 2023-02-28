@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/frontend/constants.dart';
 
 Widget homepageListCardWidget(
   String title,
@@ -38,16 +37,16 @@ Widget homepageListCardWidget(
           Text(
             subTitle,
             style: const TextStyle(
-              color: homepageListtextColor,
-              fontWeight: homepageListtextWeight,
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
               fontSize: 19,
             ),
           ),
           Text(
             title,
             style: const TextStyle(
-              color: homepageListtextColor,
-              fontWeight: homepageListtextWeight,
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
               fontSize: 15,
             ),
           ),

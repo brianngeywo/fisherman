@@ -15,7 +15,7 @@ class MpesaDepositInstructionsPage extends StatelessWidget {
       backgroundColor: mainPageBackgroundColor,
       bottomSheet: mainSubmitButton(
         text: "Continue",
-        buttonColor: mainButtonsColor,
+        // buttonColor: mainButtonsColor,
       ),
       body: Center(
         child: Padding(

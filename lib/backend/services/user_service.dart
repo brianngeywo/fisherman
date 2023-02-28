@@ -1,5 +1,3 @@
-import 'package:qashpal/backend/models/user_model.dart';
-
 // class UserService {
 //   MyUser user;
 //

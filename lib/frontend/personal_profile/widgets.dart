@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qashpal/backend/constants/constants.dart';
-import 'package:qashpal/backend/methods/user_functions.dart';
 
 Widget mainProfilePageTopWidget(
   BuildContext context,
@@ -28,7 +27,7 @@ Widget mainProfilePageTopWidget(
         children: [
           const Center(
             child: Icon(
-              FontAwesomeIcons.solidUserCircle,
+              FontAwesomeIcons.solidCircleUser,
               size: 75,
               color: Colors.white,
             ),
@@ -58,7 +57,7 @@ Widget mainProfilePageTopWidget(
                     ),
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(
@@ -70,7 +69,7 @@ Widget mainProfilePageTopWidget(
                     ),
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(

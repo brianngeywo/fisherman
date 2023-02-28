@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qashpal/backend/constants/constants.dart';
-import 'package:qashpal/backend/methods/user_functions.dart';
+import 'package:qashpal/backend/methods/general_functions.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/success_snackbar.dart';
 
@@ -40,7 +40,7 @@ SizedBox drawerHeader() {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const FaIcon(
-                      FontAwesomeIcons.solidUserCircle,
+                      FontAwesomeIcons.solidCircleUser,
                       size: 37.0,
                       color: Colors.white,
                     ),
@@ -146,13 +146,14 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
               ),
               TextButton(
                 onPressed: () {
-                  Clipboard.setData(ClipboardData(
-                      text:
-                          "https://www.qashpal.co.ke/${userProvider.user!.id}/invite"));
+                  Clipboard.setData(ClipboardData(text: referralLink));
 
                   ScaffoldMessenger.of(context).showSnackBar(
                       snackBar("Referral link copied!", Colors.lightGreen));
                 },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
@@ -162,9 +163,6 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
                       fontSize: 17,
                     ),
                   ),
-                ),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
                 ),
               ),
             ],
@@ -184,7 +182,7 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
                 userProvider.user!.accountBalance <= minimumAmountToWithdraw
                     ? mainPageBackgroundColor
                     : Colors.green,
-            value: calculateLinearIndicator(),
+            value: GeneralFunctions().calculateLinearIndicator(),
           ),
           const SizedBox(height: 15),
           Text(
@@ -199,10 +197,4 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
       ),
     ),
   );
-}
-
-double calculateLinearIndicator() {
-  double balance = minimumAmountToWithdraw - userProvider.user!.accountBalance;
-  double level = userProvider.user!.accountBalance / minimumAmountToWithdraw;
-  return level;
 }

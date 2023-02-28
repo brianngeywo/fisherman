@@ -1,6 +1,5 @@
 part of 'verification_errors_bloc.dart';
 
-@immutable
 abstract class VerificationErrorsEvent {}
 
 class CheckVerificationErrorsEvent extends VerificationErrorsEvent {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:qashpal/backend/constants/constants.dart';
+import 'package:qashpal/backend/methods/general_functions.dart';
 import 'package:qashpal/backend/models/mobile_network_model.dart';
 import 'package:qashpal/backend/models/payment_provider.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/add_mobile_network_account.dart';
 import 'package:qashpal/frontend/withdrawal_page/edit_mobile_network_account.dart';
@@ -21,25 +21,23 @@ class AddPaymentOptionPage extends StatefulWidget {
 class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
   MobileNetwork net =
       MobileNetwork(nickName: "", phoneNumber: "", firstName: "", lastName: "");
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: mainPageBackgroundColor,
       appBar: topAppBar(context,
           automaticallyImplyLeading: true, showUserIconDropdown: false),
-      bottomSheet: Container(
-        color: mainPageBackgroundColor,
-        padding: const EdgeInsets.all(8.0),
-        child: mainSubmitButton(
-          text: "Next",
-          buttonColor: mainButtonsColor,
-          myFunc: (() {
-            // if (_withdrawalScreenFormKey.currentState!.validate()) {
-            //   _withdrawalScreenFormKey.currentState!.save();
-            //   print(text);
-            // }
-          }),
-        ),
+      bottomSheet: mainSubmitButton(
+        text: "Next",
+        // buttonColor: mainButtonsColor,
+        myFunc: (() {
+          // if (_withdrawalScreenFormKey.currentState!.validate()) {
+          //   _withdrawalScreenFormKey.currentState!.save();
+          //   print(text);
+          // }
+        }),
       ),
       body: Center(
         child: Padding(
@@ -72,7 +70,7 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: LinearProgressIndicator(
                   backgroundColor: mainPageBackgroundColor,
-                  value: 0.3,
+                  value: GeneralFunctions().calculateLinearIndicator(),
                   minHeight: 7,
                 ),
               ),
@@ -109,16 +107,69 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                    children: List.generate(nets.length, (index) {
-                  setState(() {
-                    net = nets[index];
-                  });
-                  return selectPaymentOtionRadioListTile(
-                    title: "${widget.provider.name} ${nets[index].nickName}",
-                    number: nets[index].phoneNumber,
-                    subTitleColor: widget.provider.color,
-                  );
-                })
+                    children: List.generate(
+                  nets.length,
+                  (index) {
+                    return Card(
+                      elevation: 5,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(8),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(10),
+                      child: SizedBox(
+                        height: 110,
+                        child: Center(
+                          child: RadioListTile<int>(
+                            toggleable: true,
+                            value: index,
+                            groupValue: _selectedIndex,
+                            onChanged: (value) {
+                              setState(() {
+                                _selectedIndex = value!;
+                                net = nets[value];
+                              });
+                            },
+                            activeColor: const Color.fromARGB(206, 51, 94, 178),
+                            title: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Text(
+                                nets[index].nickName,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            subtitle: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.call,
+                                    size: 18,
+                                    color: widget.provider.color,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    nets[index].phoneNumber,
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: widget.provider.color,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                )
                     // selectPaymentOtionRadioListTile(
                     //       title: "${widget.provider.name} account 1",
                     //       number: "0798767470",
@@ -148,7 +199,6 @@ class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
                           builder: (cotext) => AddNewNetworkAccountPage(
                                 provider: widget.provider,
                               )));
-                      print("object");
                     },
                     child: Text(
                       "Add account",

@@ -17,7 +17,7 @@ Widget bottomNavigationBar(BuildContext context) {
     items: <Widget>[
       mainBottomNavigationBarItmIconButton(FontAwesomeIcons.house),
       mainBottomNavigationBarItmIconButton(FontAwesomeIcons.moneyBillWave),
-      mainBottomNavigationBarItmIconButton(FontAwesomeIcons.bank),
+      mainBottomNavigationBarItmIconButton(FontAwesomeIcons.buildingColumns),
       mainBottomNavigationBarItmIconButton(FontAwesomeIcons.listCheck),
       // mainBottomNavigationBarItmIconButton(FontAwesomeIcons.share),
     ],

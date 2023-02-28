@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:qashpal/backend/constants/constants.dart';
-import 'package:qashpal/backend/methods/referral_methods.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 
 Widget listOfDownLinesScreen(BuildContext context) {

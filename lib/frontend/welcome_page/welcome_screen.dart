@@ -93,7 +93,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             case OnSignInScreenState:
                               return SignInScreen();
                             case OnSignUpScreenState:
-                              return SignUpScreen();
+                              return const SignUpScreen();
                             case OnResetPasswordScreenState:
                               return ResetPasswordScreen();
                             default:

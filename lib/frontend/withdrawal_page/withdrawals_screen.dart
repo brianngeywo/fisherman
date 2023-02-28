@@ -8,7 +8,6 @@ import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 import '../account_transactions/main_account_transactions_page.dart';
 
 Widget withdrawalsScreen() {
-  String? text;
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(5.0),
@@ -36,10 +35,10 @@ Widget withdrawalsScreen() {
             margin: const EdgeInsets.only(top: 10, bottom: 10),
             child: mainSubmitButton(
               text: "Proceed to withdrawal",
-              buttonColor: const Color.fromARGB(255, 1, 13, 39),
+              // buttonColor: const Color.fromARGB(255, 1, 13, 39),
               myFunc: (() {
                 navigatorKey.currentState!.push(MaterialPageRoute(
-                    builder: (cotext) => CashoutMethodsScreen()));
+                    builder: (cotext) => const CashoutMethodsScreen()));
                 // if (_withdrawalScreenFormKey.currentState!.validate()) {
                 //   _withdrawalScreenFormKey.currentState!.save();
                 //   print(text);
@@ -50,11 +49,11 @@ Widget withdrawalsScreen() {
           const Divider(height: 2),
           Container(
             margin: const EdgeInsets.only(top: 10),
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Previous Withdrawals",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,

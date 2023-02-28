@@ -5,8 +5,8 @@ Widget depositMethodWidgetCard(
   return Card(
     color: color ?? Colors.white,
     elevation: 5,
-    margin: EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(
+    margin: const EdgeInsets.all(10),
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     child: Container(
@@ -23,17 +23,17 @@ Widget depositMethodWidgetCard(
                 size: 40,
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
           ],
         ),
       ),

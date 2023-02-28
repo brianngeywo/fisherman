@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:getsocial_flutter_sdk/getsocial_flutter_sdk.dart';
 import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/bloc/account_transactions_tabs_bloc'
     '/account_transactions_tabs_bloc.dart';
@@ -19,6 +20,7 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  GetSocial.addOnInitializedListener(() => {});
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -44,13 +46,13 @@ void main() async {
             create: (context) => PasswordsVisibilityBloc()),
         BlocProvider<ConnectivityBloc>(create: (context) => ConnectivityBloc()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override

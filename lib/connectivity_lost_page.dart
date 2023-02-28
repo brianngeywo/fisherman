@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -48,7 +47,7 @@ class ConnectivityLostPage extends StatelessWidget {
                           children: const [
                             Center(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Text(
                                   "GoldKash",
                                   style: TextStyle(
@@ -61,7 +60,7 @@ class ConnectivityLostPage extends StatelessWidget {
                             ),
                             Center(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.wifi,
                                   size: 75,
@@ -71,7 +70,7 @@ class ConnectivityLostPage extends StatelessWidget {
                             ),
                             Center(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Text(
                                   "Internet connection lost!",
                                   style: TextStyle(
@@ -84,7 +83,7 @@ class ConnectivityLostPage extends StatelessWidget {
                             ),
                             Center(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Text(
                                   "Check your connection and try again",
                                   style: TextStyle(

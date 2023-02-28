@@ -1,19 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qashpal/backend/methods/verification_methods.dart';
-import 'package:qashpal/bloc/bottom_navigation_bloc/bottom_navigation_bloc.dart';
-import 'package:qashpal/bloc/verification_errors_bloc/verification_errors_bloc'
-    '.dart';
+import 'package:qashpal/bloc/verification_errors_bloc/verification_errors_bloc.dart';
 import 'package:qashpal/bloc/welcome_screen_navigation_bloc/welcome_screen_navigation_bloc.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/success_snackbar.dart';
 import 'package:qashpal/frontend/welcome_page/widgets.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   final _passowordResetFormKey = GlobalKey<FormState>();
   String? _phone, _smsCode, _password, _password2;
-  bool _obsecureText = true;
+
+  ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

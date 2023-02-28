@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/constants/payment_providers.dart';
-import 'package:qashpal/backend/methods/user_functions.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/deposit_page/infor_card_widget.dart';
 import 'package:qashpal/frontend/deposit_page/select_payment_option.dart';
-import 'package:qashpal/frontend/deposit_page/success_card_widget.dart';
 import 'package:qashpal/frontend/deposit_page/widgets.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
@@ -40,11 +35,11 @@ Widget depositScreen() {
             margin: const EdgeInsets.only(top: 10, bottom: 10),
             child: mainSubmitButton(
               text: "Proceed to deposit",
-              buttonColor: const Color.fromARGB(255, 1, 13, 39),
+              // buttonColor: const Color.fromARGB(255, 1, 13, 39),
               myFunc: (() {
                 navigatorKey.currentState!.push(MaterialPageRoute(
-                    builder: (cotext) => const SelectPaymentOptionScreen()));
-                print("object");
+                    builder: (context) => const SelectPaymentOptionScreen()));
+
                 // if (_withdrawalScreenFormKey.currentState!.validate()) {
                 //   _withdrawalScreenFormKey.currentState!.save();
                 //   print(text);

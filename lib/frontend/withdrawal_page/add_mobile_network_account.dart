@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:qashpal/backend/constants/constants.dart';
-import 'package:qashpal/backend/models/mobile_network_model.dart';
 import 'package:qashpal/backend/models/payment_provider.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 
 class AddNewNetworkAccountPage extends StatefulWidget {
   final PaymentProvider provider;
-  AddNewNetworkAccountPage({super.key, required this.provider});
+  const AddNewNetworkAccountPage({super.key, required this.provider});
 
   @override
   State<AddNewNetworkAccountPage> createState() =>
@@ -27,10 +24,6 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
   void _submitForm() {
     if (addNetworkFormKey.currentState!.validate()) {
       addNetworkFormKey.currentState!.save();
-      print(nickname);
-      print(phone);
-      print(name1);
-      print(name2);
     }
   }
 
@@ -45,7 +38,7 @@ class _AddNewNetworkAccountPageState extends State<AddNewNetworkAccountPage> {
       ),
       bottomSheet: mainSubmitButton(
         text: 'Save',
-        buttonColor: mainButtonsColor,
+        // buttonColor: mainButtonsColor,
         myFunc: (() {
           _submitForm();
         }),

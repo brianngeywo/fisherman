@@ -5,7 +5,6 @@ import 'package:qashpal/backend/Providers/user_provider.dart';
 import 'package:qashpal/backend/methods/transactions_methods.dart';
 import 'package:qashpal/backend/methods/user_functions.dart';
 import 'package:qashpal/backend/models/mobile_network_model.dart';
-import 'package:qashpal/backend/models/payment_provider.dart';
 
 var firestore = FirebaseFirestore.instance;
 var referralCollection = FirebaseFirestore.instance.collection("referrals");
@@ -38,3 +37,4 @@ List<MobileNetwork> nets = [
     lastName: "lastName2",
   )
 ];
+String referralLink = "https://qashpal.gsc.im/${userProvider.user!.id}";

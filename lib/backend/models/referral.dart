@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class Referral {
   final String referrerId;
   final String referredId;

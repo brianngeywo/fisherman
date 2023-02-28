@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qashpal/bloc/bottom_navigation_bloc/bottom_navigation_bloc.dart';
 import 'package:qashpal/bloc/welcome_screen_navigation_bloc/welcome_screen_navigation_bloc.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/home_page/homepage.dart';
 import 'package:qashpal/frontend/home_page/main.dart';
 import 'package:qashpal/frontend/welcome_page/widgets.dart';
 

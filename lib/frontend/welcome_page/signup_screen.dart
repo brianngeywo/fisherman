@@ -6,13 +6,12 @@ import 'package:qashpal/bloc/bottom_navigation_bloc/bottom_navigation_bloc.dart'
 import 'package:qashpal/bloc/verification_errors_bloc/verification_errors_bloc.dart';
 import 'package:qashpal/bloc/welcome_screen_navigation_bloc/welcome_screen_navigation_bloc.dart';
 import 'package:qashpal/frontend/constants.dart';
-import 'package:qashpal/frontend/home_page/homepage.dart';
 import 'package:qashpal/frontend/home_page/main.dart';
 import 'package:qashpal/frontend/success_snackbar.dart';
 import 'package:qashpal/frontend/welcome_page/widgets.dart';
 
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -100,7 +99,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 color: mainButtonsColor,
                 textColor: Colors.white,
                 onPressed: () async {
-                  print(_smsCode);
                   if (_signUpFormKey.currentState!.validate()) {
                     _signUpFormKey.currentState!.save();
                     BlocProvider.of<VerificationErrorsBloc>(context)
@@ -111,7 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ));
                     VerificationMethods()
                         .authenticatePhone(_smsCode, _phone, _password);
-                    await FirebaseAuth.instance
+                    FirebaseAuth.instance
                         .authStateChanges()
                         .listen((User? user) {
                       if (user != null) {

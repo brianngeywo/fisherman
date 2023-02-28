@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qashpal/backend/constants/constants.dart';
-import 'package:qashpal/backend/methods/user_functions.dart';
 import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/home_page/homepage_list_card_widget.dart';
 import 'package:qashpal/frontend/home_page/widgets.dart';
@@ -13,10 +12,10 @@ Widget homeScreen(BuildContext context) {
       homepageEarningsWidgetCard(context),
       Center(
         child: GridView.count(
-          padding: EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           crossAxisCount: 2,
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             homepageListCardWidget(
               'Account Balance',
@@ -76,7 +75,7 @@ Widget homeScreen(BuildContext context) {
           ],
         ),
       ),
-      SizedBox(height: 10),
+      const SizedBox(height: 10),
     ],
   );
 }

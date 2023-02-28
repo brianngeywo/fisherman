@@ -3,6 +3,7 @@
     package="com.goldkash.qashpal">
     <permission android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="ReservedSystemPermission" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" />
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
