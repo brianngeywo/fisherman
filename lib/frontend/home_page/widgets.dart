@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qashpal/backend/Providers/mpesa_payments_provider.dart';
+import 'package:qashpal/backend/c2b.dart';
 import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/backend/methods/general_functions.dart';
 import 'package:qashpal/frontend/constants.dart';
@@ -148,8 +150,8 @@ Widget homepageEarningsWidgetCard(BuildContext context) {
                 onPressed: () {
                   Clipboard.setData(ClipboardData(text: referralLink));
 
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      snackBar("Referral link copied!", Colors.lightGreen));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar(
+                      MpesaPaymentsProvider().result!, Colors.lightGreen));
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.white,

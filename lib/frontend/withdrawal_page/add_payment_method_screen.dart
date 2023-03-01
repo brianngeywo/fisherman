@@ -21,7 +21,7 @@ class AddPaymentOptionPage extends StatefulWidget {
 class _AddPaymentOptionPageState extends State<AddPaymentOptionPage> {
   MobileNetwork net =
       MobileNetwork(nickName: "", phoneNumber: "", firstName: "", lastName: "");
-  int _selectedIndex = 0;
+  int? _selectedIndex;
 
   @override
   Widget build(BuildContext context) {
