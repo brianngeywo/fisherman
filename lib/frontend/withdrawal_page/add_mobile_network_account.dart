@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qashpal/backend/models/payment_provider.dart';
 import 'package:qashpal/frontend/constants.dart';
+import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/widgets.dart';
 

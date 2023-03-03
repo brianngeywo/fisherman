@@ -61,7 +61,7 @@ class AccountTransactionsPage extends StatelessWidget {
               // const Divider(height: 2),
               welcomeBackTextWidget(),
               inforNotificationCardWidget("Activation Balance:",
-                  userProvider.user!.accountBalance.toStringAsFixed(2)),
+                  userProvider.user!.accountBalance.toStringAsFixed(0)),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(

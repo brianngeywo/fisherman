@@ -16,7 +16,7 @@ Widget withdrawalsTab(dynamic withdrawals) {
           ? withdrawals.map<DataRow>((item) {
               return DataRow(cells: [
                 DataCell(Text(item.transactionId)),
-                DataCell(Text(item.amount.toString())),
+                DataCell(Text(item.amount.toStringAsFixed(0))),
                 item.status
                     ? const DataCell(Text("Successful"))
                     : const DataCell(Text("Unsuccessful")),

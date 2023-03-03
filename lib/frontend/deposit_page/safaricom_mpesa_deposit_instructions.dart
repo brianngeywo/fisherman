@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qashpal/backend/constants/constants.dart';
 import 'package:qashpal/frontend/constants.dart';
 import 'package:qashpal/frontend/deposit_page/success_card_widget.dart';
+import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 
 class MpesaDepositInstructionsPage extends StatelessWidget {

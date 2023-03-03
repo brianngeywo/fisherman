@@ -49,7 +49,7 @@ Widget mainProfilePageTopWidget(
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(
-                    "Welcome back ${userProvider.user?.id}!",
+                    "Welcome back ${userProvider.user?.id}",
                     style: const TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ Widget mainProfilePageTopWidget(
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(
-                    "Balance: ${userProvider.user!.accountBalance.toStringAsFixed(2)}",
+                    "Balance: ${userProvider.user!.accountBalance.toStringAsFixed(0)}",
                     style: const TextStyle(
                       // fontSize: 14.0,
                       fontWeight: FontWeight.bold,

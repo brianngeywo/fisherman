@@ -112,17 +112,17 @@ class MyHomePage extends StatelessWidget {
           builder: (context, state) {
             switch (state.runtimeType) {
               case OnHomepageState:
-                return homeScreen(context);
+                return const HomeScreen();
               case OnWithdrawalsListPageState:
-                return withdrawalsScreen();
+                return WithdrawalsScreen();
               case OnDepositPageState:
-                return depositScreen();
+                return DepositScreen();
               case OnDownLinesListPageState:
-                return listOfDownLinesScreen(context);
+                return const ListOfDownLinesScreen();
               // case OnShareAndInvitesPageState:
               //   return shareLinkToProfileScreen(context);
               default:
-                return homeScreen(context);
+                return const HomeScreen();
             }
           },
         ),

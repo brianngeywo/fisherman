@@ -4,6 +4,7 @@ import 'package:qashpal/backend/methods/general_functions.dart';
 import 'package:qashpal/backend/models/mobile_network_model.dart';
 import 'package:qashpal/backend/models/payment_provider.dart';
 import 'package:qashpal/frontend/constants.dart';
+import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/my_navigation_widgets/main_top_appbar.dart';
 import 'package:qashpal/frontend/withdrawal_page/add_mobile_network_account.dart';
 import 'package:qashpal/frontend/withdrawal_page/edit_mobile_network_account.dart';

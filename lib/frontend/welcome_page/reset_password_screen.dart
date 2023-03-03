@@ -4,6 +4,7 @@ import 'package:qashpal/backend/methods/verification_methods.dart';
 import 'package:qashpal/bloc/verification_errors_bloc/verification_errors_bloc.dart';
 import 'package:qashpal/bloc/welcome_screen_navigation_bloc/welcome_screen_navigation_bloc.dart';
 import 'package:qashpal/frontend/constants.dart';
+import 'package:qashpal/frontend/general_widgets/main.dart';
 import 'package:qashpal/frontend/welcome_page/widgets.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
